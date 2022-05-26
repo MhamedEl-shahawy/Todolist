@@ -15,12 +15,16 @@ function TodoForm(props) {
     setInput(e.target.value);
   };
 const handleUpdate = (e)=>{
+  if(input.length > 0){
     editItem({id:props.edit.id,value:input});
+  }
 }
   const handleSubmit = e => {
     e.preventDefault();
-    increment({value:input});
-    setInput('');
+    if(input.length > 0){
+     increment({value:input});
+     setInput('');
+    }
   };
 
   return (
